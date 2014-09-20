@@ -329,8 +329,8 @@ public class LineGraph extends View {
     }
 
     private void resetPaintWithAntiAlias(Paint paint, boolean antiAlias) {
-    	paint.reset();
-    	paint.setAntiAlias(antiAlias);
+        paint.reset();
+        paint.setAntiAlias(antiAlias);
     }
 
     public void onDraw(Canvas canvas) {
@@ -424,9 +424,20 @@ public class LineGraph extends View {
         mPaint.setColor(mAxisColor);
         mPaint.setStrokeWidth(2 * getResources().getDisplayMetrics().density);
 
+        float height;
+        if (minY < 0) {
+            // Negative values in serie, set x-axis to zero
+            height = getHeight() - bottomPadding - (usableHeight * (-minY / (maxY - minY)));
+        } else {
+            height = getHeight() - bottomPadding;
+        }
+
         mCanvas.drawLine(
-                sidePadding, getHeight() - bottomPadding,
-                getWidth() - sidePadding, getHeight() - bottomPadding, mPaint);
+                sidePadding,
+                height,
+                getWidth() - sidePadding,
+                height,
+                mPaint);
         resetPaintWithAntiAlias(mPaint, true);
 
         // Draw lines
