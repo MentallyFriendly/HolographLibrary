@@ -17,7 +17,7 @@
 
     <declare-styleable name="BarGraph">
         <attr name="barAxisColor" format="color"/>
-        <attr name="orientation" format="enum">
+        <attr name="barOrientation" format="enum">
             <enum name="horizontal" value="0"/>
             <enum name="vertical" value="1"/>
         </attr>

@@ -24,7 +24,6 @@
 package com.echo.holographlibrary;
 
 import android.animation.Animator;
-import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -47,7 +46,6 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BarGraph extends View implements HoloGraphAnimate {
@@ -95,7 +93,7 @@ public class BarGraph extends View implements HoloGraphAnimate {
         super(context, attrs, defStyleAttr);
 
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BarGraph);
-        mOrientation = a.getInt(R.styleable.BarGraph_orientation, ORIENTATION_VERTICAL);
+        mOrientation = a.getInt(R.styleable.BarGraph_barOrientation, ORIENTATION_VERTICAL);
         mAxisColor = a.getColor(R.styleable.BarGraph_barAxisColor, Color.LTGRAY);
         mShowAxis = a.getBoolean(R.styleable.BarGraph_barShowAxis, true);
         mShowAxisLabel = a.getBoolean(R.styleable.BarGraph_barShowAxisLabel, true);
